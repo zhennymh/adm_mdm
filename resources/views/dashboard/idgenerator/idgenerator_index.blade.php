@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.main')
 
 @section('contents')
-
     <div class="container-xl">
         <!-- Page title -->
         <div class="page-header d-print-none">
@@ -48,57 +47,75 @@
             <div class="row row-deck row-cards">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <div class="col">
-                                <h3 class="align-items-start card-title"><span>
-                                        <!-- Download SVG icon from http://tabler-icons.io/i/filter -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <path
-                                                d="M5.5 5h13a1 1 0 0 1 .5 1.5l-5 5.5l0 7l-4 -3l0 -4l-5 -5.5a1 1 0 0 1 .5 -1.5" />
-                                        </svg>
-                                    </span>Filter Data</h3>
-                            </div>
-                        </div>
-                        <div class="card-body" id="filter">
-                            <div class="row">
-                                <div class="col-lg-2 col-md-4 col-sm-12">
-                                    <div class="form-label">Jenis Alat</div>
-                                    <select class="form-select" id="filter_alat">
-                                    </select>
+                        <form action="{{ url('/idgen_export') }}" method="POST">
+                            @csrf
+                            <div class="card-header">
+                                <div class="col">
+                                    <h3 class="align-items-start card-title"><span>
+                                            <!-- Download SVG icon from http://tabler-icons.io/i/filter -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path
+                                                    d="M5.5 5h13a1 1 0 0 1 .5 1.5l-5 5.5l0 7l-4 -3l0 -4l-5 -5.5a1 1 0 0 1 .5 -1.5" />
+                                            </svg>
+                                        </span>Filter Data</h3>
                                 </div>
-                                <div class="col-lg-2 col-md-4 col-sm-12">
-                                    <div class="form-label">Date Start</div>
-                                    <input type="text" class="datepicker form-control" id="filter_date_start"
-                                        placeholder="Date Start">
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-12">
-                                    <div class="form-label">Date End</div>
-                                    <input type="text" class="datepicker form-control" id="filter_date_end"
-                                        placeholder="Date End">
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-12">
-                                    <div class="form-label">Provinsi</div>
-                                    <select class="form-select" id="filter_provinsi">
+                                <div class="col text-end">
 
-                                    </select>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-12">
-                                    <div class="form-label">Kabupaten</div>
-                                    <select class="form-select" id="filter_kabupaten">
-                                        <option value="" disabled selected>Pilih Kabupaten</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-12">
-                                    <div class="form-label">Kecamatan</div>
-                                    <select class="form-select" id="filter_kecamatan">
-                                        <option value="" disabled selected>Pilih Kecamatan</option>
-                                    </select>
+                                    <button type="submit" id="btn_save_excel"
+                                        class=" align-items-end btn btn-sm btn-outline-success align-items-center"><span>
+                                            <!-- Download SVG icon from http://tabler-icons.io/i/download -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                                                <polyline points="7 11 12 16 17 11" />
+                                                <line x1="12" y1="4" x2="12" y2="16" />
+                                            </svg>
+                                        </span>Excel</button>
                                 </div>
                             </div>
-                        </div>
+                            <div class="card-body" id="filter">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-4 col-sm-12">
+                                        <div class="form-label">Jenis Alat</div>
+                                        <select class="form-select" name="filter_alat" id="filter_alat">
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-sm-12">
+                                        <div class="form-label">Date Start</div>
+                                        <input value="2021-01-19" type="text" class="datepicker form-control"
+                                            name="filter_date_start" id="filter_date_start" placeholder="Date Start">
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-sm-12">
+                                        <div class="form-label">Date End</div>
+                                        <input type="text" class="datepicker form-control" name="filter_date_end"
+                                            id="filter_date_end" placeholder="Date End">
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-sm-12">
+                                        <div class="form-label">Provinsi</div>
+                                        <select class="form-select" name="filter_provinsi" id="filter_provinsi">
+
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-sm-12">
+                                        <div class="form-label">Kabupaten</div>
+                                        <select class="form-select" name="filter_kabupaten" id="filter_kabupaten">
+                                            <option value="" disabled selected>Pilih Kabupaten</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-sm-12">
+                                        <div class="form-label">Kecamatan</div>
+                                        <select class="form-select" name="filter_kecamatan" id="filter_kecamatan">
+                                            <option value="" disabled selected>Pilih Kecamatan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                         <div class="row">
                             <div class="col text-center">
                                 <button id="btn_filter" class="btn btn-primary">Filter</button>
@@ -123,6 +140,9 @@
                                             <th>Provinsi</th>
                                             <th>Created By</th>
                                             <th>Date Created</th>
+                                            @if (auth()->user()->role_id == 1)
+                                                <th>Action</th>
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -148,12 +168,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="row pb-2">
-                        <div class="col-lg-6">
+                        <div class="col-lg-8">
                             <label class="form-label">Nama Site</label>
                             <input id="add_site" type="text" class="form-control" name="example-text-input"
                                 placeholder="Masukkan Nama Site">
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <label class="form-label">Jenis Alat</label>
                             <select class="form-select" id="add_alat">
 
@@ -201,15 +221,14 @@
                     <div class="row">
                         <div class="col">
                             <label class="form-label">ID Baru</label>
-                            <input readonly id="add_id_site" type="text" class="form-control" name="example-text-input"
-                                placeholder="ID baru">
+                            <input readonly id="add_id_site" type="text" class="bg-green-lt form-control"
+                                name="example-text-input" placeholder="ID baru">
                         </div>
                     </div>
                 </div>
 
                 <div class="modal-footer">
                     <button id="add_clear" type="button" class="btn me-auto">Clear</button>
-
                     <button id="add_generate" type="button" class="btn btn-success">Generate ID</button>
                     <button disabled id="add_save" type="button" class="btn btn-primary">Simpan ID</button>
                 </div>
@@ -264,108 +283,225 @@
         //fungsi untuk menarik site
         function query_site() {
             let i = 1;
-            const table = $("#site_table").DataTable({
-                scrollX: false,
-                responsive: true,
-                pageLength: 25,
-                lengthMenu: [
-                    [5, 10, 25, 50, 100],
-                    [5, 10, 25, 50, 100]
-                ],
-                bLengthChange: true,
-                bFilter: true,
-                bInfo: true,
-                searching: false,
-                processing: true,
-                bServerSide: true,
-                order: [
-                    [1, "asc"]
-                ],
-                ajax: {
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    url: "/idgen_getSite",
-                    type: "POST",
-                    data: function(data) {
-                        data.id_alat = $('#filter_alat').val();
-                        data.date_start = $('#filter_date_start').val();
-                        data.date_end = $('#filter_date_end').val();
-                        data.id_provinsi = $('#filter_provinsi').val();
-                        data.id_kabupaten = $('#filter_kabupaten').val();
-                        data.id_kecamatan = $('#filter_kecamatan').val();
-                    }
-                },
-                dom: 'Blfrtip',
-                buttons: [{
-                    extend: 'copy',
-                    className: 'btn-primary'
-                }],
-                columns: [{
-                        "data": null,
-                        "sortable": false,
-                        "render": function(data, type, row, meta) {
-                            return meta.row + meta.settings._iDisplayStart + 1
+            let id_user = @json(auth()->user());
+            id_user = id_user.id;
+
+            if (id_user == 1) {
+                const table = $("#site_table").DataTable({
+                    scrollX: true,
+                    responsive: true,
+                    pageLength: 25,
+                    lengthMenu: [
+                        [5, 10, 25, 50, 100],
+                        [5, 10, 25, 50, 100]
+                    ],
+                    bLengthChange: true,
+                    bFilter: true,
+                    bInfo: true,
+                    searching: true,
+                    processing: true,
+                    bServerSide: true,
+                    order: [
+                        [1, "asc"]
+                    ],
+                    ajax: {
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: "/idgen_getSite",
+                        type: "POST",
+                        data: function(data) {
+                            data.id_alat = $('#filter_alat').val();
+                            data.date_start = $('#filter_date_start').val();
+                            data.date_end = $('#filter_date_end').val();
+                            data.id_provinsi = $('#filter_provinsi').val();
+                            data.id_kabupaten = $('#filter_kabupaten').val();
+                            data.id_kecamatan = $('#filter_kecamatan').val();
                         }
                     },
-                    {
-                        "render": function(data, type, row, meta) {
-                            return row.id_site
+                    buttons: [{
+                        extend: 'copy',
+                        className: 'btn-primary'
+                    }],
+                    columns: [{
+                            "data": null,
+                            "sortable": false,
+                            "render": function(data, type, row, meta) {
+                                return meta.row + meta.settings._iDisplayStart + 1
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.id_site
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.site
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.alat
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.lat
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.lon
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.elevasi
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.kecamatan
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.kabupaten
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.provinsi
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.username
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.date_created
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return '<button type="button" onclick="deleteSite(`' + row.id_site +
+                                '`, `' +
+                                row
+                                .site +
+                                '`)"class = " align-items-end btn btn-sm btn-outline-danger align-items-center">Delete </button>'
+                            }
+                        },
+
+                    ]
+                });
+            } else {
+                const table = $("#site_table").DataTable({
+                    scrollX: false,
+                    responsive: true,
+                    pageLength: 25,
+                    lengthMenu: [
+                        [5, 10, 25, 50, 100],
+                        [5, 10, 25, 50, 100]
+                    ],
+                    bLengthChange: true,
+                    bFilter: true,
+                    bInfo: true,
+                    searching: true,
+                    processing: true,
+                    bServerSide: true,
+                    order: [
+                        [1, "asc"]
+                    ],
+                    ajax: {
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: "/idgen_getSite",
+                        type: "POST",
+                        data: function(data) {
+                            data.id_alat = $('#filter_alat').val();
+                            data.date_start = $('#filter_date_start').val();
+                            data.date_end = $('#filter_date_end').val();
+                            data.id_provinsi = $('#filter_provinsi').val();
+                            data.id_kabupaten = $('#filter_kabupaten').val();
+                            data.id_kecamatan = $('#filter_kecamatan').val();
                         }
                     },
-                    {
-                        "render": function(data, type, row, meta) {
-                            return row.site
-                        }
-                    },
-                    {
-                        "render": function(data, type, row, meta) {
-                            return row.alat
-                        }
-                    },
-                    {
-                        "render": function(data, type, row, meta) {
-                            return row.lat
-                        }
-                    },
-                    {
-                        "render": function(data, type, row, meta) {
-                            return row.lon
-                        }
-                    },
-                    {
-                        "render": function(data, type, row, meta) {
-                            return row.elevasi
-                        }
-                    },
-                    {
-                        "render": function(data, type, row, meta) {
-                            return row.kecamatan
-                        }
-                    },
-                    {
-                        "render": function(data, type, row, meta) {
-                            return row.kabupaten
-                        }
-                    },
-                    {
-                        "render": function(data, type, row, meta) {
-                            return row.provinsi
-                        }
-                    },
-                    {
-                        "render": function(data, type, row, meta) {
-                            return row.username
-                        }
-                    },
-                    {
-                        "render": function(data, type, row, meta) {
-                            return row.date_created
-                        }
-                    },
-                ]
-            });
+                    buttons: [{
+                        extend: 'copy',
+                        className: 'btn-primary'
+                    }],
+                    columns: [{
+                            "data": null,
+                            "sortable": false,
+                            "render": function(data, type, row, meta) {
+                                return meta.row + meta.settings._iDisplayStart + 1
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.id_site
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.site
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.alat
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.lat
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.lon
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.elevasi
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.kecamatan
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.kabupaten
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.provinsi
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.username
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.date_created
+                            }
+                        },
+
+                    ]
+                });
+            }
         }
+
 
         let click = false;
 
@@ -405,6 +541,38 @@
             $("#add_kecamatan").append('<option value="" disabled selected>Pilih Kecamatan</option>');
             document.getElementById("add_save").disabled = true;
         })
+
+        function deleteSite(id_site, site) {
+            if (confirm('Apakah anda yakin menghapus ' + site + '?')) {
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '/idgen_deleteSite',
+                    type: 'POST',
+                    dataType: "text",
+                    data: {
+                        id_site
+                    },
+                    error: function(xhr, status, error) {
+                        let errorMessage = xhr.status + ': ' + xhr.statusText;
+                        alert('Error - ' + errorMessage);
+                    },
+                    success: function(response) {
+                        alert(response);
+
+                        $('#site_table').DataTable().destroy();
+                        query_site();
+                    }
+                });
+
+
+
+            } else {
+                // Do nothing!
+                // console.log('Thing was not saved to the database.');
+            }
+        }
 
         //handle ketika tomboll add di tekan
         function add_site() {
@@ -701,10 +869,11 @@
                 success: function(response) {
                     alert(response);
                     $('#modal_add').modal('hide');
+                    $('#site_table').DataTable().destroy();
+                    query_site();
                 }
             });
 
         });
     </script>
-
 @endsection

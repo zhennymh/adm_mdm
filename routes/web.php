@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth_Controller;
 use App\Http\Controllers\Dashboard_Controller;
 use App\Http\Controllers\IdGenerator_Controller;
 use App\Http\Controllers\Pelayanan_Controller;
+use App\Http\Controllers\Persuratan_Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,5 +49,26 @@ Route::post('/idgen_getSite', [IdGenerator_Controller::class, 'idgen_getSite'])-
 Route::post('/idgen_getRadius', [IdGenerator_Controller::class, 'idgen_getRadius'])->middleware(['auth']);
 Route::post('/idgen_getLatestId', [IdGenerator_Controller::class, 'idgen_getLatestId'])->middleware(['auth']);
 Route::post('/idgen_saveSite', [IdGenerator_Controller::class, 'idgen_saveSite'])->middleware(['auth']);
+Route::post('/idgen_export', [IdGenerator_Controller::class, 'idgen_export'])->name('idgen_export')->middleware(['auth']);
+Route::post('/idgen_deleteSite', [IdGenerator_Controller::class, 'idgen_deleteSite'])->middleware(['auth']);
 
 Route::get('/pelayanandata', [Pelayanan_Controller::class, 'index'])->middleware(['auth', 'isHaveAccess']);
+Route::post('/peldata_getSurat', [Pelayanan_Controller::class, 'peldata_getSurat'])->middleware(['auth']);
+Route::get('/peldata_getPemohon', [Pelayanan_Controller::class, 'peldata_getPemohon'])->middleware(['auth']);
+Route::post('/peldata_deleteSurat', [Pelayanan_Controller::class, 'peldata_deleteSurat'])->middleware(['auth']);
+Route::post('/peldata_showSurat', [Pelayanan_Controller::class, 'peldata_showSurat'])->middleware(['auth']);
+Route::post('/peldata_save', [Pelayanan_Controller::class, 'peldata_save'])->middleware(['auth']);
+Route::post('/peldata_add', [Pelayanan_Controller::class, 'peldata_add'])->middleware(['auth']);
+Route::post('/peldata_export', [Pelayanan_Controller::class, 'peldata_export'])->middleware(['auth']);
+// Route::post('/store', [Pelayanan_Controller::class, 'store'])->middleware(['auth']);
+
+Route::get('/persuratan', [Persuratan_Controller::class, 'index'])->middleware(['auth', 'isHaveAccess']);
+Route::post('/persuratan', [Persuratan_Controller::class, 'persuratan'])->middleware(['auth']);
+Route::post('/persuratan_add_masuk', [Persuratan_Controller::class, 'persuratan_add_masuk'])->middleware(['auth']);
+Route::post('/persuratan_add_keluar', [Persuratan_Controller::class, 'persuratan_add_keluar'])->middleware(['auth']);
+Route::post('/persuratan_showSurat', [Persuratan_Controller::class, 'persuratan_showSurat'])->middleware(['auth']);
+Route::post('/persuratan_deleteSurat', [Persuratan_Controller::class, 'persuratan_deleteSurat'])->middleware(['auth']);
+Route::get('/persuratan_header', [Persuratan_Controller::class, 'persuratan_header'])->middleware(['auth']);
+Route::post('/persuratan_subheader', [Persuratan_Controller::class, 'persuratan_subheader'])->middleware(['auth']);
+Route::post('/persuratan_cekSequence', [Persuratan_Controller::class, 'persuratan_cekSequence'])->middleware(['auth']);
+Route::post('/persuratan_export', [Persuratan_Controller::class, 'persuratan_export'])->middleware(['auth']);

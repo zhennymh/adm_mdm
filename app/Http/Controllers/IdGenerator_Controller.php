@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Menu;
 use App\Models\Site;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SiteExport;
 
 class IdGenerator_Controller extends Controller
 {
@@ -82,6 +84,7 @@ class IdGenerator_Controller extends Controller
             'provinsi',
             'username',
             'date_created',
+            'action'
         ];
 
         $orderBy = $columns[request()->input("order.0.column")];
@@ -112,6 +115,13 @@ class IdGenerator_Controller extends Controller
 
         if ($date_start && $date_end) {
             $data->whereRaw('DATE(date_created) BETWEEN "' . $date_start . '" AND "' . $date_end . '"');
+        }
+
+        if (request()->input("search.value")) {
+            $data = $data->where(function ($query) {
+                $query->whereRaw('LOWER(site) like ?', ['%' . strtolower(request()->input("search.value")) . '%'])
+                    ->orWhereRaw('LOWER(date_created) like ?', ['%' . strtolower(request()->input("search.value")) . '%']);
+            });
         }
 
         $data->orderBy('s.date_created', 'desc');
@@ -214,5 +224,58 @@ class IdGenerator_Controller extends Controller
         DB::table('idgen_site')->insert($data);
 
         echo "Berhasil input data";
+    }
+
+    function idgen_export(Request $request)
+    {
+        $filename = date("Ymd") . '-Export.xlsx';
+
+        $id_alat = $request->filter_alat;
+        $id_provinsi = $request->filter_provinsi;
+        $id_kabupaten = $request->filter_kabupaten;
+        $id_kecamatan = $request->filter_kecamatan;
+        $date_start = $request->filter_date_start;
+        $date_end = $request->filter_date_end;
+
+        $excel = (new SiteExport);
+
+        if ($id_alat !== null) {
+            $excel = $excel->whereAlat($id_alat);
+        }
+
+        if ($id_provinsi !== null) {
+            $excel = $excel->whereProvinsi($id_provinsi);
+        }
+
+        if ($id_kabupaten !== null) {
+            $excel = $excel->whereKabupaten($id_kabupaten);
+        }
+
+        if ($id_kecamatan !== null) {
+            $excel = $excel->whereKecamatan($id_kecamatan);
+        }
+
+        if ($date_start !== null && $date_end !== null) {
+            $excel = $excel->whereDate($date_start, $date_end);
+        }
+
+        return $excel->download($filename);
+    }
+
+    function idgen_deleteSite(Request $request)
+    {
+        $id_site = $request->id_site;
+
+        try {
+            //insert row baru dan tangkap id dari row baru tersebut
+            $deleteUser = DB::table('idgen_site')->where('id_site', '=', $id_site)->delete();
+
+            // $deletePermission = DB::table('user_server_permission')->where('userid', '=', $userid)->delete();
+
+            echo "Data user berhasil dihapus.";
+        } catch (\Illuminate\Database\QueryException $err) {
+            // dd($ex->getMessage());
+            echo $err->getMessage();
+        }
     }
 }
