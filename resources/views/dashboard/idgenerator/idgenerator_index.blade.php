@@ -130,6 +130,7 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Id Site</th>
+                                            <th>Id Site Old</th>
                                             <th>Site</th>
                                             <th>Alat</th>
                                             <th>Latitude</th>
@@ -221,7 +222,7 @@
                     <div class="row">
                         <div class="col">
                             <label class="form-label">ID Baru</label>
-                            <input readonly id="add_id_site" type="text" class="bg-green-lt form-control"
+                            <input id="add_id_site" type="text" class="bg-green-lt form-control"
                                 name="example-text-input" placeholder="ID baru">
                         </div>
                     </div>
@@ -333,6 +334,11 @@
                         {
                             "render": function(data, type, row, meta) {
                                 return row.id_site
+                            }
+                        },
+                        {
+                            "render": function(data, type, row, meta) {
+                                return row.id_site_old
                             }
                         },
                         {

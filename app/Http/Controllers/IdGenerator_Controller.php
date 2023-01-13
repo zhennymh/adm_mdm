@@ -74,6 +74,7 @@ class IdGenerator_Controller extends Controller
         $columns = [
             'no',
             'id_site',
+            'id_site_old',
             'site',
             'alat',
             'lat',
@@ -90,7 +91,7 @@ class IdGenerator_Controller extends Controller
         $orderBy = $columns[request()->input("order.0.column")];
 
         $data = DB::table('idgen_site as s')
-            ->select('id_site', 'site', 'alat', 'lat', 'lon', 'elevasi', 'kecamatan', 'kabupaten', 'provinsi', 'username', 'date_created')
+            ->select('id_site', 'id_site_old','site', 'alat', 'lat', 'lon', 'elevasi', 'kecamatan', 'kabupaten', 'provinsi', 'username', 'date_created')
             ->join('idgen_provinsi as p', 's.id_provinsi', '=', 'p.id')
             ->join('idgen_kabupaten as kb', 's.id_kabupaten', '=', 'kb.id')
             ->join('idgen_kecamatan as kc', 's.id_kecamatan', '=', 'kc.id')
