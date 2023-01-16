@@ -554,7 +554,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/persuratan_add_masuk',
+                url: "{{ url('/persuratan_add_masuk') }}",
                 type: 'POST',
                 dataType: "text",
                 data: {
@@ -597,7 +597,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/persuratan_add_keluar',
+                url: "{{ url('/persuratan_add_keluar') }}",
                 type: 'POST',
                 dataType: "text",
                 data: {
@@ -626,7 +626,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: '/persuratan_deleteSurat',
+                    url: "{{ url('/persuratan_deleteSurat') }}",
                     type: 'POST',
                     dataType: "text",
                     data: {
@@ -673,7 +673,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/persuratan_showSurat',
+                url: "{{ url('/persuratan_showSurat') }}",
                 type: 'POST',
                 dataType: "text",
                 data: {
@@ -724,7 +724,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/peldata_save',
+                url: "{{ url('/peldata_save') }}",
                 type: 'POST',
                 dataType: "text",
                 data: {
@@ -796,7 +796,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/persuratan_subheader',
+                url: "{{ url('/persuratan_subheader') }}",
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -851,7 +851,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/persuratan_cekSequence',
+                url: "{{ url('/persuratan_cekSequence') }}",
                 type: 'POST',
                 dataType: "json",
                 data: {
