@@ -272,7 +272,9 @@
                 $(field).html('');
                 $(field).append('<option value="" disabled selected>Pilih Provinsi</option>')
                 $.each(data, function() {
-                    $(field).append('<option value="' + this.id + '">' + this.provinsi +
+                    // $(field).append('<option value="' + this.id + '">' + this.provinsi +
+                        // '</option>')
+                    $(field).append('<option value="' + this.id + '">' + this.id +" - " + this.provinsi +
                         '</option>')
                 })
             })
@@ -619,7 +621,9 @@
                     $("#filter_kabupaten").append(
                         '<option value="" disabled selected>Pilih Kabupaten</option>');
                     $.each(kabupaten, function() {
-                        $("#filter_kabupaten").append('<option value="' + this.id + '">' + this
+                        // $("#filter_kabupaten").append('<option value="' + this.id + '">' + this
+                            // .kabupaten + '</option>');
+                        $("#filter_kabupaten").append('<option value="' + this.id + '">' + this.id +" - " + this
                             .kabupaten + '</option>');
                     })
                 }
@@ -648,7 +652,9 @@
                     $("#add_kabupaten").append(
                         '<option value="" disabled selected>Pilih Kabupaten</option>');
                     $.each(kabupaten, function() {
-                        $("#add_kabupaten").append('<option value="' + this.id + '">' + this
+                        // $("#add_kabupaten").append('<option value="' + this.id + '">' + this
+                            // .kabupaten + '</option>');
+                        $("#add_kabupaten").append('<option value="' + this.id + '">' + this.id +" - "+ this
                             .kabupaten + '</option>');
                     })
                 }
@@ -680,7 +686,9 @@
                     $("#filter_kecamatan").append(
                         '<option value="" disabled selected>Pilih Kecamatan</option>');
                     $.each(kecamatan, function() {
-                        $("#filter_kecamatan").append('<option value="' + this.id + '">' + this
+                        // $("#filter_kecamatan").append('<option value="' + this.id + '">' + this
+                            // .kecamatan + '</option>');
+                        $("#filter_kecamatan").append('<option value="' + this.id + '">' + this.id +" - " + this
                             .kecamatan + '</option>');
                     })
                 }
@@ -707,7 +715,7 @@
                     $("#add_kecamatan").append(
                         '<option value="" disabled selected>Pilih Kecamatan</option>');
                     $.each(kecamatan, function() {
-                        $("#add_kecamatan").append('<option value="' + this.id + '">' + this
+                        $("#add_kecamatan").append('<option value="' + this.id + '">' + this.id + " - " + this
                             .kecamatan + '</option>');
                     })
                 }
