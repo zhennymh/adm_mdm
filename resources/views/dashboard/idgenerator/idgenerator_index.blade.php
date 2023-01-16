@@ -252,7 +252,7 @@
     <script>
         //fungsi untuk menarik id alat
         function tarikAlat(field) {
-            $.getJSON("/idgen_getAlat", function(data) {
+            $.getJSON("{{ url('/idgen_getAlat') }}", function(data) {
                 $(field).html(''); //# buat nyari id
                 $(field).append('<option value="" disabled selected>Pilih Jenis Peralatan</option>')
                 // menambahkan opsi ke dropdown jenis alat
@@ -268,7 +268,7 @@
 
         //fungsi untuk menarik id provinsi
         function tarikProvinsi(field) {
-            $.getJSON("/idgen_getProvinsi", function(data) {
+            $.getJSON("{{ url('/idgen_getProvinsi') }}", function(data) {
                 $(field).html('');
                 $(field).append('<option value="" disabled selected>Pilih Provinsi</option>')
                 $.each(data, function() {
@@ -309,7 +309,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        url: "/idgen_getSite",
+                        url: "{{ url('/idgen_getSite') }}",
                         type: "POST",
                         data: function(data) {
                             data.id_alat = $('#filter_alat').val();
@@ -425,7 +425,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        url: "/idgen_getSite",
+                        url: "{{ url('/idgen_getSite') }}",
                         type: "POST",
                         data: function(data) {
                             data.id_alat = $('#filter_alat').val();
@@ -554,7 +554,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: '/idgen_deleteSite',
+                    url: "{{ url('/idgen_deleteSite') }}",
                     type: 'POST',
                     dataType: "text",
                     data: {
@@ -604,7 +604,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: 'idgen_getKabupaten',
+                url: "{{ url('idgen_getKabupaten') }}",
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -633,7 +633,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: 'idgen_getKabupaten',
+                url: "{{ url('idgen_getKabupaten') }}",
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -665,7 +665,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/idgen_getKecamatan',
+                url: "{{ url('/idgen_getKecamatan') }}",
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -692,7 +692,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/idgen_getKecamatan',
+                url: "{{ url('/idgen_getKecamatan') }}",
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -724,7 +724,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 async: false, //deprecated
-                url: '/idgen_getRadius',
+                url: "{{ url('/idgen_getRadius') }}",
                 type: 'POST',
                 dataType: 'text',
                 data: {
@@ -748,7 +748,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/idgen_getLatestId',
+                url: "{{ url('/idgen_getLatestId') }}",
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -853,7 +853,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/idgen_saveSite',
+                url: "{{ url('/idgen_saveSite') }}",
                 type: 'POST',
                 dataType: "text",
                 data: {

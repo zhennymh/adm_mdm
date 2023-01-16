@@ -35,7 +35,7 @@
                 <ul class="navbar-nav">
                     @foreach ($menu as $m)
                         <li class="nav-item {{ $uri == $m->uri ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ $m->url }}">
+                            <a class="nav-link" href="{{ url($m->url) }}">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     {!! $m->icon !!}
                                 </span>

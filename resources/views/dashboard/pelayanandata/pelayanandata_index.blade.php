@@ -448,7 +448,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        url: "/peldata_getSurat",
+                        url: "{{ url('/peldata_getSurat') }}",
                         type: "POST",
                         data: function(data) {
                             if (filter == true) {
@@ -544,7 +544,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        url: "/peldata_getSurat",
+                        url: "{{ url('/peldata_getSurat') }}",
                         type: "POST",
                         data: function(data) {
                             if (filter == true) {
@@ -688,7 +688,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: '/peldata_deleteSurat',
+                    url: "{{ url('/peldata_deleteSurat') }}",
                     type: 'POST',
                     dataType: "text",
                     data: {
@@ -735,7 +735,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/peldata_showSurat',
+                url: "{{ url('/peldata_showSurat') }}",
                 type: 'POST',
                 dataType: "text",
                 data: {

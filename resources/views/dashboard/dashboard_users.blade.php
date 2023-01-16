@@ -206,7 +206,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/getAllMenu',
+                url: "{{ url('/getAllMenu') }}",
                 type: 'POST',
                 dataType: "json",
                 data: {},
@@ -255,7 +255,7 @@
                     'headers': {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    'url': '/getUsers',
+                    'url': "{{ url('/getUsers') }}",
                     'type': 'POST',
                     "data": function(data) {
 
@@ -306,7 +306,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        url: '/addUser',
+                        url: "{{ url('/addUser') }}",
                         type: 'POST',
                         dataType: "text",
                         data: {
@@ -349,7 +349,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/getUserDetail',
+                url: "{{ url('/getUserDetail') }}",
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -398,7 +398,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: '/updateUser',
+                    url: "{{ url('/updateUser') }}",
                     type: 'POST',
                     dataType: "text",
                     data: {
@@ -431,7 +431,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: '/deleteUser',
+                    url: "{{ url('/deleteUser') }}",
                     type: 'POST',
                     dataType: "text",
                     data: {
