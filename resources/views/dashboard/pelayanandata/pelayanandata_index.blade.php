@@ -401,7 +401,7 @@
     <script>
         //fungsi untuk menarik id alat
         function tarikPemohon(field) {
-            $.getJSON("/peldata_getPemohon", function(data) {
+            $.getJSON("{{ url('/peldata_getPemohon') }}", function(data) {
                 $(field).html(''); //# buat nyari id
                 $(field).append('<option value="" disabled selected>Pilih Jenis Pemohon</option>')
                 // menambahkan opsi ke dropdown jenis alat
