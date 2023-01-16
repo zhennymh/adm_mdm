@@ -168,7 +168,7 @@ class IdGenerator_Controller extends Controller
         // $this->db->limit(1);
         // $latest_id = $this->db->get()->result();
 
-        if ($latest_id == null) {
+        if ($latest_id == null || count($latest_id) === 0) {
             $no_data = [];
             $no_data[] = ['id_site' => 'no_data'];
 
