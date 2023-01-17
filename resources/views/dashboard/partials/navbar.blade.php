@@ -19,7 +19,7 @@
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <form action="/logout" method="post">
+                <form action="{{ url('logout') }}" method="post">
                     @csrf
                     <button type="submit" class="dropdown-item">Logout</button>
                 </form>
