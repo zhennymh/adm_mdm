@@ -504,29 +504,29 @@
 
         let click = false;
 
-        query_surat("#masuk_table", "/persuratan", false, 'persuratan_masuk'); //tampilkan di datatable
-        query_surat("#keluar_table", "/persuratan", false, 'persuratan_keluar'); //tampilkan di datatable
+        query_surat("#masuk_table", "{{ url('/persuratan') }}", false, 'persuratan_masuk'); //tampilkan di datatable
+        query_surat("#keluar_table", "{{ url('/persuratan') }}", false, 'persuratan_keluar'); //tampilkan di datatable
 
         //handle ketika tombol filter di tekan
         $("#btn_filter").click(function() {
             if ($('#filter_jenis_surat').val() == 'masuk') {
                 console.log(true);
                 $('#masuk_table').DataTable().destroy();
-                query_surat("#masuk_table", "/persuratan", true, 'persuratan_masuk'); //tampilkan di datatable
+                query_surat("#masuk_table", "{{ url('/persuratan') }}", true, 'persuratan_masuk'); //tampilkan di datatable
             } else if ($('#filter_jenis_surat').val() == 'keluar') {
                 $('#keluar_table').DataTable().destroy();
-                query_surat("#keluar_table", "/persuratan", true, 'persuratan_keluar'); //tampilkan di datatable
+                query_surat("#keluar_table", "{{ url('/persuratan') }}", true, 'persuratan_keluar'); //tampilkan di datatable
             } else if ($('#filter_tanggal').val() != null && $('#filter_jenis_surat').val() == null) {
                 console.log('here');
                 $('#masuk_table').DataTable().destroy();
                 $('#keluar_table').DataTable().destroy();
-                query_surat("#masuk_table", "/persuratan", true, 'persuratan_masuk'); //tampilkan di datatable
-                query_surat("#keluar_table", "/persuratan", true, 'persuratan_keluar'); //tampilkan di datatable
+                query_surat("#masuk_table", "{{ url('/persuratan') }}", true, 'persuratan_masuk'); //tampilkan di datatable
+                query_surat("#keluar_table", "{{ url('/persuratan') }}", true, 'persuratan_keluar'); //tampilkan di datatable
             } else {
                 $('#masuk_table').DataTable().destroy();
                 $('#keluar_table').DataTable().destroy();
-                query_surat("#masuk_table", "/persuratan", false, 'persuratan_masuk'); //tampilkan di datatable
-                query_surat("#keluar_table", "/persuratan", false, 'persuratan_keluar'); //tampilkan di datatable
+                query_surat("#masuk_table", "{{ url('/persuratan') }}", false, 'persuratan_masuk'); //tampilkan di datatable
+                query_surat("#keluar_table", "{{ url('/persuratan') }}", false, 'persuratan_keluar'); //tampilkan di datatable
             }
             click = true;
         })
@@ -570,7 +570,7 @@
                     alert(response);
 
                     $('#masuk_table').DataTable().destroy();
-                    query_surat("#masuk_table", "/persuratan", false, 'persuratan_masuk');
+                    query_surat("#masuk_table", "{{ url('/persuratan') }}", false, 'persuratan_masuk');
                     click = true;
                     $('#modal_add_masuk').modal('hide');
                 }
@@ -613,7 +613,7 @@
                     alert(response);
 
                     $('#keluar_table').DataTable().destroy();
-                    query_surat("#keluar_table", "/persuratan", false, 'persuratan_keluar');
+                    query_surat("#keluar_table", "{{ url('/persuratan') }}", false, 'persuratan_keluar');
                     click = true;
                     $('#modal_add_keluar').modal('hide');
                 }
@@ -642,10 +642,10 @@
 
                         if (db_table == 'persuratan_masuk') {
                             $('#masuk_table').DataTable().destroy();
-                            query_surat("#masuk_table", "/persuratan", false, 'persuratan_masuk');
+                            query_surat("#masuk_table", "{{ url('/persuratan') }}", false, 'persuratan_masuk');
                         } else if (db_table == 'persuratan_keluar') {
                             $('#keluar_table').DataTable().destroy();
-                            query_surat("#keluar_table", "/persuratan", false, 'persuratan_keluar');
+                            query_surat("#keluar_table", "{{ url('/persuratan') }}", false, 'persuratan_keluar');
                         }
 
                     }
@@ -763,7 +763,7 @@
 
         //fungsi untuk menarik header
         function tarikHeader(field) {
-            $.getJSON("/persuratan_header", function(data) {
+            $.getJSON("{{ url('/persuratan_header') }}", function(data) {
                 $(field).html('');
                 $(field).append('<option value="" disabled selected>Pilih Header</option>')
                 $.each(data, function() {
