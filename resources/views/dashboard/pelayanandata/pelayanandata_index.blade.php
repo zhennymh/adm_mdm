@@ -754,7 +754,7 @@
                     $('#show_surat_masuk').val(response.surat_masuk);
                     if (response.file_surat_masuk) {
                         $("#show_file_surat_masuk").attr("hidden", false);
-                        $("#show_file_surat_masuk").attr("href", "/storage/upload/surat_masuk/" + response
+                        $("#show_file_surat_masuk").attr("href", "{{ url('/storage/upload/surat_masuk') }}/" + response
                             .file_surat_masuk);
                     }
                     $('#show_pemohon').val(response.pemohon);
@@ -769,7 +769,7 @@
                     $('#show_surat_keluar').val(response.surat_keluar);
                     if (response.file_surat_keluar) {
                         $("#show_file_surat_keluar").attr("hidden", false);
-                        $("#show_file_surat_keluar").attr("href", "/storage/upload/surat_keluar/" + response
+                        $("#show_file_surat_keluar").attr("href", "{{ url('/storage/upload/surat_keluar') }}/" + response
                             .file_surat_keluar);
                     }
 
