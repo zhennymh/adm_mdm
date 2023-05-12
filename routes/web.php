@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard_Controller;
 use App\Http\Controllers\IdGenerator_Controller;
 use App\Http\Controllers\Pelayanan_Controller;
 use App\Http\Controllers\Persuratan_Controller;
+use App\Http\Controllers\Visualisasi_Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,3 +73,5 @@ Route::get('/persuratan_header', [Persuratan_Controller::class, 'persuratan_head
 Route::post('/persuratan_subheader', [Persuratan_Controller::class, 'persuratan_subheader'])->middleware(['auth']);
 Route::post('/persuratan_cekSequence', [Persuratan_Controller::class, 'persuratan_cekSequence'])->middleware(['auth']);
 Route::post('/persuratan_export', [Persuratan_Controller::class, 'persuratan_export'])->middleware(['auth']);
+
+Route::get('/visualisasi/metadatastation', [Visualisasi_Controller::class, 'metadatastation'])->middleware(['auth']);
