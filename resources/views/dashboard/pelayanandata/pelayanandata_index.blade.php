@@ -775,9 +775,9 @@
 
 
                     if (response.tanggal_masuk != null && response.tanggal_keluar != null) {
-                        const date1 = new Date(response.tanggal_masuk);
-                        // const date2 = new Date(response.tanggal_keluar);
-                        const date2 = new Date(response.tanggal_terima);
+                        // const date1 = new Date(response.tanggal_masuk);
+                        const date1 = new Date(response.tanggal_terima);
+                        const date2 = new Date(response.tanggal_keluar);                        
                         const diffTime = Math.abs(date2 - date1);
                         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
