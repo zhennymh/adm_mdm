@@ -58,13 +58,13 @@
                         <a class="dropdown-item" href="http://172.19.2.189/views/MetadataStation/Dashboard1?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Metadata Station
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="http://172.19.2.189/views/AnalisaLagTime/DashboardLagTime?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Lagtime
                         </a>
                         <a class="dropdown-item" href="#" rel="noopener">
                           Me48
                         </a>
-                        <a class="dropdown-item" href="#" rel="noopener">
+                        <a class="dropdown-item" href="http://172.19.2.189/views/PosHujan/Dashboard1?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Pos Hujan Kerjasama
                         </a>
                         <!-- <a class="dropdown-item text-pink" href="https://github.com/sponsors/codecalm" target="_blank" rel="noopener">                        
