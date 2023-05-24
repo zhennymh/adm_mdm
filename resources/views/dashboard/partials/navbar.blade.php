@@ -67,7 +67,7 @@
                         <a class="dropdown-item" href="http://172.19.2.189/views/PosHujan/Dashboard1?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Pos Hujan Kerjasama
                         </a>
-                        <a class="dropdown-item" href="http://172.19.2.189/views/DataPosHujan/Dashboard1?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
+                        <a class="dropdown-item" href="http://172.19.2.189/views/DataPosHujan/DashboardDataHujanPHK?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Data Pos Hujan Kerjasama
                         </a>
                         
