@@ -61,6 +61,9 @@
                         <a class="dropdown-item" href="http://172.19.2.189/views/AnalisaLagTime/DashboardLagTime?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Lagtime
                         </a>
+                        <a class="dropdown-item" href="http://172.19.2.189/views/AnalisaLagTime/DashboardLagTimeGBON?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
+                          Lagtime (GBON)
+                        </a>                        
                         <a class="dropdown-item" href="#" rel="noopener">
                           Me48
                         </a>
