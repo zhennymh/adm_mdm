@@ -85,6 +85,9 @@
                         <a class="dropdown-item" href="http://172.19.2.189/views/WWRBMKG/DashboardKetersediaanData?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           World Weather Records (WWR)
                         </a>
+                        <a class="dropdown-item" href="http://172.19.2.189/views/DataMeteorologiPenerbangan/DashboardMetar?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
+                          Ketersediaan Data Meteorologi Penerbangan (BMKGSoft)
+                        </a>
 
                         
                         <!-- <a class="dropdown-item text-pink" href="https://github.com/sponsors/codecalm" target="_blank" rel="noopener">                        
