@@ -64,9 +64,9 @@
                         <a class="dropdown-item" href="http://172.19.2.189/views/AnalisaLagTime/DashboardLagTimeGBON?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Lagtime (GBON)
                         </a>                        
-                        <a class="dropdown-item" href="#" rel="noopener">
+                        <!-- <a class="dropdown-item" href="#" rel="noopener">
                           Me48
-                        </a>
+                        </a> -->
                         <a class="dropdown-item" href="http://172.19.2.189/views/PosHujan/Dashboard1?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Pos Hujan Kerjasama
                         </a>
@@ -88,6 +88,10 @@
                         <a class="dropdown-item" href="http://172.19.2.189/views/DataMeteorologiPenerbangan/DashboardMetar?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Ketersediaan Data Meteorologi Penerbangan (BMKGSoft)
                         </a>
+                        <a class="dropdown-item" href="http://172.19.2.189/views/EvaluasiDataBMKGSoft/Story?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
+                          Evaluasi Data BMKGSoft
+                        </a>
+
 
                         
                         <!-- <a class="dropdown-item text-pink" href="https://github.com/sponsors/codecalm" target="_blank" rel="noopener">                        
