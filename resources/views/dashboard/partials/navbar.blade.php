@@ -56,7 +56,10 @@
                       </a>
                       <div class="dropdown-menu">
                         <a class="dropdown-item" href="http://172.19.2.189/views/MetadataStation/Dashboard1?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
-                          Metadata Station
+                          Metadata Stasiun
+                        </a>
+                        <a class="dropdown-item" href="http://172.19.2.189/views/KetersediaanDataBMKGSoft/DashboardData?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
+                          Ketersediaan Data BMKGSoft
                         </a>
                         <a class="dropdown-item" href="http://172.19.2.189/views/AnalisaLagTime/DashboardLagTime?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Lagtime
@@ -73,9 +76,9 @@
                         <a class="dropdown-item" href="http://172.19.2.189/views/DataPosHujan/DashboardDataHujanPHK?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Data Pos Hujan Kerjasama
                         </a>
-                        <a class="dropdown-item" href="http://172.19.2.189/views/DataPosHujan/DashboardData9999?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
+                        <!-- <a class="dropdown-item" href="http://172.19.2.189/views/DataPosHujan/DashboardData9999?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Data Hujan 9999 Pos Hujan Kerjasama 
-                        </a>
+                        </a> -->
                         <a class="dropdown-item" href="http://172.19.2.189/views/DataPosHujan/DashboardPenginputDataPHK?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Penginput Data Pos Hujan Kerjasama
                         </a>
