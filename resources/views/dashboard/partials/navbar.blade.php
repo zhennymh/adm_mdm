@@ -97,6 +97,9 @@
                         <a class="dropdown-item" href="http://172.19.2.189/views/EvaluasiePHK/DashboardPenggunaePHK?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
                           Evaluasi ePHK
                         </a>
+                        <a class="dropdown-item" href="http://172.19.2.189/views/PersentaseDataAWSCenterBMKG/DasbhoardPersentaseDataAWSCenterUPTKlimatologi?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:origin=viz_share_link" target="_blank">
+                          Persentase Data AWSCenter
+                        </a>
 
 
                         
