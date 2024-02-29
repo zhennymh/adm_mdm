@@ -64,7 +64,7 @@ class Pelayanan_Controller extends Controller
         $orderBy = $columns[request()->input("order.0.column")];
 
         $data = DB::table('peldata_surat as s')
-            ->select('s.id', 'tanggal_masuk', 'tanggal_terima', 'surat_masuk', 'pemohon', 'jenis_pemohon', 'jumlah_lokasi', 'lokasi', 'jumlah_parameter', 'parameter', 'periode', 'tanggal_keluar', 'surat_keluar')
+            ->select('s.id', 'tanggal_masuk', 'tanggal_terima', 'surat_masuk', 'pemohon', 'jenis_pemohon', 'PIC', 'link_data', 'jumlah_lokasi', 'lokasi', 'jumlah_parameter', 'parameter', 'periode', 'tanggal_keluar', 'surat_keluar', 'keterangan')
             ->join('peldata_jenis_pemohon as jp', 's.id_jenis_pemohon', '=', 'jp.id');
 
         if ($id_jenis_pemohon) {
@@ -225,6 +225,8 @@ class Pelayanan_Controller extends Controller
             'surat_masuk' => $request->show_surat_masuk,
             'pemohon' => $request->show_pemohon,
             'id_jenis_pemohon' => $request->show_jenis_pemohon,
+            'PIC' => $request->show_pic,
+            'link_data' => $request->show_link_data,
             'jumlah_lokasi' => $request->show_jumlah_lokasi,
             'lokasi' => $request->show_lokasi,
             'jumlah_parameter' => $request->show_jumlah_parameter,
@@ -232,6 +234,7 @@ class Pelayanan_Controller extends Controller
             'periode' => $request->show_periode,
             'tanggal_keluar' => $request->show_tanggal_keluar,
             'surat_keluar' => $request->show_surat_keluar,
+            'keterangan' => $request->show_keterangan,
         ];
 
         if ($file_surat_masuk !== null) {
@@ -277,6 +280,8 @@ class Pelayanan_Controller extends Controller
             'file_surat_masuk' => $file_surat_masuk,
             'pemohon' => $request->add_pemohon,
             'id_jenis_pemohon' => $request->add_jenis_pemohon,
+            'PIC' => $request->add_pic,
+            'link_data' => $request->add_link_data,
             'jumlah_lokasi' => $request->add_jumlah_lokasi,
             'lokasi' => $request->add_lokasi,
             'jumlah_parameter' => $request->add_jumlah_parameter,
@@ -285,6 +290,7 @@ class Pelayanan_Controller extends Controller
             'tanggal_keluar' => $request->add_tanggal_keluar,
             'surat_keluar' => $request->add_surat_keluar,
             'file_surat_keluar' => $file_surat_keluar,
+            'keterangan' => $request->add_keterangan,
         ];
 
         // dd($data);

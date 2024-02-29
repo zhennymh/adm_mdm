@@ -179,6 +179,27 @@
                                 </select>
                             </div>
                             <div class="col-lg-6">
+                                <label class="form-label">PIC</label>
+                                <select class="form-select mb-2" name="add_pic"
+                                    id="add_pic" type="text">
+                                    <option value='' selected disabled>Silakan pilih PIC</option>
+                                    <option value="feizal">Feizal Amri Permana</option>
+                                    <option value="heru">Heru Tri Buwono</option>
+                                    <option value="hesti">Hesti Hati Nurani</option>
+                                    <option value="join">Join Wan Chanlyn</option>
+                                    <option value="mahisa">Mahisa Ajy Kusuma</option>
+                                    <option value="ayu">MDN Ayu Bima</option>
+                                    <option value="maya">Mayanatela Putri</option>
+                                    <option value="zack">M. Hajar Zakariya</option>
+                                    <option value="jeje">Zhenny M. Husna</option>
+                                    <option value="fauzi">Fauzi Mahardika</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label">Link Data</label>
+                                <input name="add_link_data" id="add_link_data" type="text" class="form-control mb-2">
+                            </div>
+                            <div class="col-lg-6">
                                 <label class="form-label">Jumlah Lokasi</label>
                                 <input name="add_jumlah_lokasi" id="add_jumlah_lokasi" type="number"
                                     class="form-control mb-2">
@@ -214,6 +235,10 @@
                                 <label class="form-label">Unggah Surat Keluar</label>
                                 <input name="add_file_surat_keluar" id="add_file_surat_keluar" type="file"
                                     class="form-control mb-2">
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label">Keterangan</label>
+                                <input name="add_keterangan" id="add_keterangan" type="text" class="form-control mb-2">
                             </div>
                         </div>
 
@@ -282,6 +307,27 @@
                                 </select>
                             </div>
                             <div class="col-lg-6">
+                                <label class="form-label">PIC</label>
+                                <select disabled class="form-select mb-2"  id="show_pic">
+                                    <option value='' selected disabled>Silakan pilih PIC</option>
+                                    <option value='feizal'>Feizal Amri Permana</option>
+                                    <option value='heru'>Heru Tri Buwono</option>
+                                    <option value='hesti'>Hesti Hati Nurani</option>
+                                    <option value='join'>Join Wan Chanlyn</option>
+                                    <option value='mahisa'>Mahisa Ajy Kusuma</option>
+                                    <option value='ayu'>MDN Ayu Bima</option>
+                                    <option value='maya'>Mayanatela Putri</option>
+                                    <option value='zack'>M. Hajar Zakariya</option>
+                                    <option value='jeje'>Zhenny M. Husna</option>
+                                    <option value='fauzi'>Fauzi Mahardika</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label">Link Data</label>
+                                <input disabled name="show_link_data" id="show_link_data" type="text"
+                                    class="form-control mb-2">
+                            </div>
+                            <div class="col-lg-6">
                                 <label class="form-label">Jumlah Lokasi</label>
                                 <input disabled name="show_jumlah_lokasi" id="show_jumlah_lokasi" type="number"
                                     class="form-control mb-2">
@@ -329,6 +375,10 @@
                                 <label class="form-label">Ubah Surat Keluar</label>
                                 <input name="show_file_surat_keluar" id="show_file_surat_keluar" type="file"
                                     class="form-control mb-2">
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label">Keterangan</label>
+                                <input disabled name="show_keterangan" id="show_keterangan" type="text" class="form-control mb-2">
                             </div>
                         </div>
 
@@ -760,12 +810,15 @@
                     $('#show_pemohon').val(response.pemohon);
                     $('#show_jenis_pemohon option[value="' + response.id_jenis_pemohon + '"]').prop('selected',
                         true);
+                    $('#show_pic').val(response.PIC);
+                    $('#show_link_data').val(response.link_data);
                     $('#show_jumlah_lokasi').val(response.jumlah_lokasi);
                     $('#show_lokasi').val(response.lokasi);
                     $('#show_jumlah_parameter').val(response.jumlah_parameter);
                     $('#show_parameter').val(response.parameter);
                     $('#show_periode').val(response.periode);
                     $('#show_tanggal_keluar').val(response.tanggal_keluar);
+                    $('#show_keterangan').val(response.keterangan);
                     $('#show_surat_keluar').val(response.surat_keluar);
                     if (response.file_surat_keluar) {
                         $("#show_file_surat_keluar").attr("hidden", false);
